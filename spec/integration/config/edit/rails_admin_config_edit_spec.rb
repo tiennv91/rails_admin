@@ -717,6 +717,7 @@ describe 'RailsAdmin Config DSL Edit Section', type: :request do
       find('#field_test_nested_field_tests_attributes_1__destroy', visible: false).set('true')
 
       click_button 'Save'
+      p page.body unless page.has_content?('Field test successfully updated')
       is_expected.to have_content('Field test successfully updated')
 
       @record.reload
